@@ -60,7 +60,7 @@ def movies_item_view(request, id):
     if request.method == 'GET':
         serializer = MovieSerializer(movies)
         return Response(data=serializer.data)
-    elif request.method =='DELETE':
+    elif request.method == 'DELETE':
         movies.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     else:
@@ -69,10 +69,6 @@ def movies_item_view(request, id):
         movies.duration = request.data.get('duration')
         movies.category_id = request.data.get('category_id')
         return Response(data={'massage': 'update'},status=status.HTTP_202_ACCEPTED)
-
-
-
-
 
 
 @api_view(['GET','POST'])
